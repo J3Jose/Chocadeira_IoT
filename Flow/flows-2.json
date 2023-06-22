@@ -1,0 +1,1241 @@
+[
+    {
+        "id": "0dd47b7d4f0ced2e",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a212d2d775a83d15",
+        "type": "mqtt in",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "topic": "esp32/valor/Temperatura",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0b0ab4732df46b2a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 160,
+        "wires": [
+            [
+                "8b98659a06e5dd82"
+            ]
+        ]
+    },
+    {
+        "id": "d82e66411ac883d8",
+        "type": "ui_gauge",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "group": "e6e2ab22a2026b4f",
+        "order": 2,
+        "width": 6,
+        "height": 5,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "˚C",
+        "format": "{{value}}",
+        "min": "15",
+        "max": "35",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 730,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "bf88269eea2afc95",
+        "type": "mqtt in",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "topic": "esp32/valor/Luz",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0b0ab4732df46b2a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 380,
+        "wires": [
+            [
+                "052cb0c06c8b5742"
+            ]
+        ]
+    },
+    {
+        "id": "6f057752c350955f",
+        "type": "mqtt in",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "topic": "esp32/valor/Humidade",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0b0ab4732df46b2a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 260,
+        "wires": [
+            [
+                "9170e027fef752d6"
+            ]
+        ]
+    },
+    {
+        "id": "7c3a5b0b070a75e1",
+        "type": "mqtt in",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "topic": "esp32/valor/setpointTemperatura",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0b0ab4732df46b2a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 540,
+        "wires": [
+            [
+                "970180100095a37a"
+            ]
+        ]
+    },
+    {
+        "id": "d70d0c3a3dac7658",
+        "type": "ui_gauge",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "group": "72fe4c1927bcea87",
+        "order": 2,
+        "width": 6,
+        "height": 5,
+        "gtype": "donut",
+        "title": "Humidade",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ff2600",
+            "#e6e600",
+            "#00f900"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 690,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "8b98659a06e5dd82",
+        "type": "function",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "function 1",
+        "func": "msg.payload = msg.payload.Temperatura;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "d82e66411ac883d8",
+                "897c520a10457959"
+            ]
+        ]
+    },
+    {
+        "id": "9170e027fef752d6",
+        "type": "function",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "function 2",
+        "func": "msg.payload = msg.payload.Humidade;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 260,
+        "wires": [
+            [
+                "d70d0c3a3dac7658",
+                "0fdf2eb0e329354a"
+            ]
+        ]
+    },
+    {
+        "id": "052cb0c06c8b5742",
+        "type": "function",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "function 3",
+        "func": "msg.payload = msg.payload.Luz;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 380,
+        "wires": [
+            [
+                "688c5a02c10c0dcf"
+            ]
+        ]
+    },
+    {
+        "id": "970180100095a37a",
+        "type": "function",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "function 4",
+        "func": "msg.payload = msg.payload.setpointTemperatura;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 540,
+        "wires": [
+            [
+                "33edf30560a97c0a"
+            ]
+        ]
+    },
+    {
+        "id": "897c520a10457959",
+        "type": "ui_chart",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "group": "e6e2ab22a2026b4f",
+        "order": 12,
+        "width": 8,
+        "height": 5,
+        "label": "Temperatura",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "10",
+        "ymax": "35",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 730,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0fdf2eb0e329354a",
+        "type": "ui_chart",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "group": "72fe4c1927bcea87",
+        "order": 12,
+        "width": 8,
+        "height": 5,
+        "label": "Umidade",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 700,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5f31e8a815875fe2",
+        "type": "mqtt in",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "topic": "esp32/valor/setpointUmidade",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0b0ab4732df46b2a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 600,
+        "wires": [
+            [
+                "1e3e1391d2a4bc39"
+            ]
+        ]
+    },
+    {
+        "id": "1e3e1391d2a4bc39",
+        "type": "function",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "function 5",
+        "func": "msg.payload = msg.payload.setpointUmidade;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 600,
+        "wires": [
+            [
+                "a96f2ada128606bc"
+            ]
+        ]
+    },
+    {
+        "id": "688c5a02c10c0dcf",
+        "type": "ui_text",
+        "z": "0dd47b7d4f0ced2e",
+        "group": "c1acf740d9ee4176",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Aquecimento",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 570,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "732ce7e86df8345e",
+        "type": "mqtt in",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "topic": "esp32/valor/Bomba",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0b0ab4732df46b2a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 440,
+        "wires": [
+            [
+                "c625196c8282931a"
+            ]
+        ]
+    },
+    {
+        "id": "c625196c8282931a",
+        "type": "function",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "function 6",
+        "func": "msg.payload = msg.payload.Bomba;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 440,
+        "wires": [
+            [
+                "63fa255e63640295"
+            ]
+        ]
+    },
+    {
+        "id": "63fa255e63640295",
+        "type": "ui_text",
+        "z": "0dd47b7d4f0ced2e",
+        "group": "c1acf740d9ee4176",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Bomba",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 600,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "33edf30560a97c0a",
+        "type": "ui_gauge",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "group": "c1acf740d9ee4176",
+        "order": 4,
+        "width": 4,
+        "height": 3,
+        "gtype": "donut",
+        "title": "SetPoint Temperatura",
+        "label": "˚",
+        "format": "{{value}}",
+        "min": "15",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 620,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "114b7ba89995d92b",
+        "type": "mqtt out",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "Mqtt",
+        "topic": "esp32/valor/setpointTemperatura",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0b0ab4732df46b2a",
+        "x": 530,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "ea595977c691244b",
+        "type": "ui_slider",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "label": "SetPoint Temperatura",
+        "tooltip": "",
+        "group": "c1acf740d9ee4176",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "topicType": "str",
+        "min": 0,
+        "max": "50",
+        "step": 1,
+        "className": "",
+        "x": 160,
+        "y": 720,
+        "wires": [
+            [
+                "96e13004374a5aff"
+            ]
+        ]
+    },
+    {
+        "id": "96e13004374a5aff",
+        "type": "function",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "function 7",
+        "func": "msg.payload = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 720,
+        "wires": [
+            [
+                "114b7ba89995d92b",
+                "33edf30560a97c0a"
+            ]
+        ]
+    },
+    {
+        "id": "b404159fa26640cb",
+        "type": "postgresql",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "query": "INSERT INTO temperaturas (temperatura) VALUES ($1)\n",
+        "postgreSQLConfig": "67d679d5afeb22b8",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 570,
+        "y": 1080,
+        "wires": [
+            [
+                "841d3a6e4749c6d7"
+            ]
+        ]
+    },
+    {
+        "id": "1ef8bba2b5a288d7",
+        "type": "postgresql",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "query": "SELECT * FROM temperaturas;\n\n",
+        "postgreSQLConfig": "67d679d5afeb22b8",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 370,
+        "y": 940,
+        "wires": [
+            [
+                "ed65763690c359c5"
+            ]
+        ]
+    },
+    {
+        "id": "bce12e314fde0d9c",
+        "type": "ui_slider",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "label": "SetPoint Humidade",
+        "tooltip": "",
+        "group": "c1acf740d9ee4176",
+        "order": 18,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "topicType": "str",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 150,
+        "y": 780,
+        "wires": [
+            [
+                "c97b41174f547e3a"
+            ]
+        ]
+    },
+    {
+        "id": "c97b41174f547e3a",
+        "type": "function",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "function 8",
+        "func": "msg.payload = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 780,
+        "wires": [
+            [
+                "b1ccfa0da198ba23",
+                "a96f2ada128606bc"
+            ]
+        ]
+    },
+    {
+        "id": "b1ccfa0da198ba23",
+        "type": "mqtt out",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "Mqtt",
+        "topic": "esp32/valor/setpointHumidade",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0b0ab4732df46b2a",
+        "x": 530,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "a96f2ada128606bc",
+        "type": "ui_gauge",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "group": "c1acf740d9ee4176",
+        "order": 12,
+        "width": 4,
+        "height": 3,
+        "gtype": "donut",
+        "title": "SetPoint Umidade",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 610,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "ed65763690c359c5",
+        "type": "function",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "function 10",
+        "func": "var ids = msg.payload.map(objeto => objeto.temperatura);\n\n// Atualiza a mensagem de saída com os valores de \"id\"\nmsg.payload = ids;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 920,
+        "wires": [
+            [
+                "82f1aabdf86537cf"
+            ]
+        ]
+    },
+    {
+        "id": "b0c29b4da40847f3",
+        "type": "ui_table",
+        "z": "0dd47b7d4f0ced2e",
+        "group": "72fe4c1927bcea87",
+        "name": "Histórico",
+        "order": 12,
+        "width": "3",
+        "height": "4",
+        "columns": [
+            {
+                "field": "Temperatura",
+                "title": "temperatura",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 960,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "82f1aabdf86537cf",
+        "type": "function",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "function 11",
+        "func": "var data = msg.payload;\n\n// Cria um array de objetos com base nos dados\nvar tableData = data.map(function (value) {\n    return {\n        Temperatura: value, // Substitua \"coluna1\" pelo nome da primeira coluna\n        // Adicione mais propriedades para cada coluna adicional que você deseja exibir\n    };\n});\n\n// Define a propriedade payload para os dados da tabela\nmsg.payload = tableData;\n\n// Retorna a mensagem atualizada\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 920,
+        "wires": [
+            [
+                "b0c29b4da40847f3"
+            ]
+        ]
+    },
+    {
+        "id": "4f3d3863c10b45cd",
+        "type": "mqtt in",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "topic": "esp32/valor/Temperatura",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0b0ab4732df46b2a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 880,
+        "wires": [
+            [
+                "b1226c99ecc60c4f"
+            ]
+        ]
+    },
+    {
+        "id": "841d3a6e4749c6d7",
+        "type": "debug",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "params",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "b1226c99ecc60c4f",
+        "type": "function",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "function 12",
+        "func": "msg.payload = msg.payload.Temperatura;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 130,
+        "y": 1000,
+        "wires": [
+            [
+                "4cd65fca08e47006"
+            ]
+        ]
+    },
+    {
+        "id": "4d6b2a4de365bc80",
+        "type": "function",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "function 13",
+        "func": "msg.params = [msg.payload];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1080,
+        "wires": [
+            [
+                "b404159fa26640cb"
+            ]
+        ]
+    },
+    {
+        "id": "4cd65fca08e47006",
+        "type": "delay",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 150,
+        "y": 1220,
+        "wires": [
+            [
+                "4d6b2a4de365bc80",
+                "1ef8bba2b5a288d7"
+            ]
+        ]
+    },
+    {
+        "id": "8fd56c6c895c65a2",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "72fe4c1927bcea87",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "3ad222482042315e",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "72fe4c1927bcea87",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "26ae6863aa6a7e73",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "72fe4c1927bcea87",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "c460b352fad6cd1c",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "72fe4c1927bcea87",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "1d646e49e89be2e5",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "72fe4c1927bcea87",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "ee7d4598ed39edb1",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "72fe4c1927bcea87",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "9227e1e6267007ae",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "72fe4c1927bcea87",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "cd01dc82b05527cc",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "72fe4c1927bcea87",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "56835391c253f84c",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "72fe4c1927bcea87",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "cf0227c2c2d37a05",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "72fe4c1927bcea87",
+        "order": 11,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f3f1eb4c87411652",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "e6e2ab22a2026b4f",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "a740af3aac6f809c",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "e6e2ab22a2026b4f",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "878afd9988cb827f",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "e6e2ab22a2026b4f",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "04f8f23fc7e2f2a8",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "e6e2ab22a2026b4f",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0b0f295bb54abe66",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "e6e2ab22a2026b4f",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "2f062f410736c164",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "e6e2ab22a2026b4f",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "b8889d2074663473",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "e6e2ab22a2026b4f",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "6b60efe8d478556b",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "e6e2ab22a2026b4f",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "c2665ca84c2b58e0",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "e6e2ab22a2026b4f",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "d1347d3f2d8b17ae",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "e6e2ab22a2026b4f",
+        "order": 11,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "bd8c3758d204b874",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "c1acf740d9ee4176",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "29247031c655e0aa",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "c1acf740d9ee4176",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "c006b4e42fade5d5",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "c1acf740d9ee4176",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "8ba4e7ad914baa6f",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "c1acf740d9ee4176",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "5b6fb00e3aa12a38",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "c1acf740d9ee4176",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "4e5a7ffcd904f9e1",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "c1acf740d9ee4176",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "81f55858d9dafdb8",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "c1acf740d9ee4176",
+        "order": 11,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "b4a3df20dc092d09",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "c1acf740d9ee4176",
+        "order": 13,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "95a3eb58b57bb18e",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "c1acf740d9ee4176",
+        "order": 14,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f99ebe6b2f836493",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "c1acf740d9ee4176",
+        "order": 15,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "ab8e7153f6a4ad32",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "c1acf740d9ee4176",
+        "order": 16,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "49a9e871bb87a6fb",
+        "type": "ui_spacer",
+        "z": "0dd47b7d4f0ced2e",
+        "name": "spacer",
+        "group": "c1acf740d9ee4176",
+        "order": 17,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0b0ab4732df46b2a",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "http://3.22.51.250",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "e6e2ab22a2026b4f",
+        "type": "ui_group",
+        "name": "Temperatura",
+        "tab": "95dc38e286d88513",
+        "order": 2,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "72fe4c1927bcea87",
+        "type": "ui_group",
+        "name": "Humidade",
+        "tab": "95dc38e286d88513",
+        "order": 1,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c1acf740d9ee4176",
+        "type": "ui_group",
+        "name": "Luz",
+        "tab": "95dc38e286d88513",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "67d679d5afeb22b8",
+        "type": "postgreSQLConfig",
+        "name": "",
+        "host": "127.0.0.1",
+        "hostFieldType": "str",
+        "port": "5432",
+        "portFieldType": "num",
+        "database": "nome_banco",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "applicationName": "",
+        "applicationNameType": "str",
+        "max": "10",
+        "maxFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "jose",
+        "userFieldType": "str",
+        "password": "123456",
+        "passwordFieldType": "str"
+    },
+    {
+        "id": "95dc38e286d88513",
+        "type": "ui_tab",
+        "name": "Dashboard Chocadeira",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    }
+]
