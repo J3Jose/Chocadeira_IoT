@@ -117,6 +117,7 @@ Mencione as ferramentas que você usou para criar seu projeto
 É altamente recomendável conceder o merecido reconhecimento a todas as pessoas que participaram do projeto, desde o seu início até o seu desfecho. Essa atitude essencial demonstra o apreço pela colaboração e o trabalho em equipe. Ademais, constitui uma poderosa maneira de fomentar a motivação e o engajamento das pessoas, incentivando-as a continuarem se envolvendo em futuros empreendimentos, com a certeza de que seu esforço será devidamente valorizado e reconhecido.
 
 * **Desenvolvedor** - [José Vicente Teodoro Igino]
+* **Desenvolvedor** - [Higor Zambaldi Trabuo]
 
 
 ---
